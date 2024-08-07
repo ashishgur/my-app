@@ -94,7 +94,7 @@ const Owner_Registration = () => {
     } catch (err) {
       if(err.response && err.response.status===400){
         setError(err.response.data.message);
-        console.log(error);
+        
       }
       else{
       setError('Registration failed. Please try again.');

@@ -70,9 +70,11 @@ const Cust_Registration = () => {
     } catch (err) {
       if(err.response && err.response.status===400 ){
         setError(err.response.data.message);
+        
       }
       else{
       setError('Registration failed. Please try again.');
+      
     }
       setSuccess('');
     }
