@@ -7,11 +7,14 @@ import About from './components/About';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Footer from './components/Footer';
-import Cust_Registration from './components/Cust_Registration';
+import CustRegistration from './components/CustRegistration';
 import OwnerRegistration from './components/OwnerRegistration';
-
+import LogoutComp from './components/LogoutComp';
 import Owner from './components/Owner';
 import Customer from './components/Customer';
+// import Admin from './components/Admin';
+import { useSelector } from 'react-redux';
+
 
 const App = () => {
   // State to manage items in the cart
@@ -27,25 +30,33 @@ const App = () => {
     setCart((prevCart) => prevCart.filter((_, i) => i !== index));
   };
 
+  //myState refering intial state of logged store action is loggedIn:false
+  const myState=useSelector((state)=>state.logged)
+
   return (
-    <Router>
-      <Navbar />
-      <div className="container mt-3" style={{ minHeight: 'calc(100vh - 120px)' }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products addToCart={addToCart} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register-customer" element={<Cust_Registration />} />
-          <Route path="/register-owner" element={<OwnerRegistration />} />
-          <Route path="/owner" element={<Owner />} />
-          <Route path="/customer" element={<Customer/>} />
-          
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+    <>
+     <Router>
+{myState && <Navbar/>}
+<div className="container mt-3" style={{ minHeight: 'calc(100vh - 120px)' }}>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/products" element={<Products addToCart={addToCart} />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+    <Route path="/login" element={<Login />} />
+    {/* <Route path="/admin" element={<Admin/>}/> */}
+    <Route path="/register-customer" element={<CustRegistration />} />
+    <Route path="/register-owner" element={<OwnerRegistration />} />
+    <Route path="/owner" element={<Owner />} />
+    <Route path="/customer" element={<Customer/>} />
+    <Route path="/logout" element={<LogoutComp/>}/>
+    
+  </Routes>
+</div>
+<Footer />
+</Router>
+    </>
+   
   );
 };
 

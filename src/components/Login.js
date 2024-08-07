@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { login } from './Slice';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -7,6 +9,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loginTxt,setloginTxt]=useState('Login');
   const navigate = useNavigate(); // Hook for navigation
+  const reducxAction=useDispatch();  //to modify state of login
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,11 +33,15 @@ const Login = () => {
       console.log('Response data:', data); // Log the entire response object for debugging
 
       if (response.ok) {
-        alert(JSON.stringify(data))
+        reducxAction(login())  //fetch login action from reducers object with initial state from loggedSlice and convert loggedIn state from false to true
+        // alert(JSON.stringify(data))
         setloginTxt('Logout');
 
         // Check roleId and navigate accordingly
         switch (data.roleId)  {
+          case 1:
+            navigate('/admin');
+            break;
           case 2:
             navigate('/owner'); // Redirect to owner component
             break;
