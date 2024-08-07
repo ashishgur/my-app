@@ -88,6 +88,30 @@ const Cust_Registration = () => {
             <div className="card-body">
               <h2 className="card-title text-center mb-4">Customer Registration</h2>
               <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                  <label htmlFor="userName" className="form-label">Username</label>
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    className="form-control"
+                    value={formData.user.userName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="form-control"
+                    value={formData.user.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
                 <div className="mb-3">
                   <label htmlFor="custFname" className="form-label">First Name</label>
                   <input
@@ -113,13 +137,13 @@ const Cust_Registration = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="address" className="form-label">Address</label>
-                  <textarea
-                    id="address"
-                    name="address"
+                  <label htmlFor="email" className="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
                     className="form-control"
-                    rows="3"
-                    value={formData.address}
+                    value={formData.email}
                     onChange={handleChange}
                     required
                   />
@@ -136,42 +160,20 @@ const Cust_Registration = () => {
                     required
                   />
                 </div>
+                
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
+                  <label htmlFor="address" className="form-label">Address</label>
+                  <textarea
+                    id="address"
+                    name="address"
                     className="form-control"
-                    value={formData.email}
+                    rows="3"
+                    value={formData.address}
                     onChange={handleChange}
                     required
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="userName" className="form-label">Username</label>
-                  <input
-                    type="text"
-                    id="userName"
-                    name="userName"
-                    className="form-control"
-                    value={formData.user.userName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    className="form-control"
-                    value={formData.user.password}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+                
                 
                 {error && <p className="text-danger">{error}</p>}
                 {success && <p className="text-success">{success}</p>}
