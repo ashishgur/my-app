@@ -64,10 +64,10 @@ const Owner_Registration = () => {
       setError('Please fill out all fields.');
       return;
     }
-
+    var response="";
     try {
 
-      const response = await axios.post('https://localhost:7196/api/Users/insertOwner', {
+      response = await axios.post('https://localhost:7196/api/Users/insertOwner', {
         ownerId: 0,
         userId: 0,
         ...formData,
@@ -92,7 +92,13 @@ const Owner_Registration = () => {
         },
       });
     } catch (err) {
+      if(err.response && err.response.status===400){
+        setError(err.response.data.message);
+        console.log(error);
+      }
+      else{
       setError('Registration failed. Please try again.');
+    }
       setSuccess('');
     }
   };
