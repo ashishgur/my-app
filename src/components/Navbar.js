@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-success">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src="..\..\img\logo1.png" alt="Logo" width="30" height="30" className="d-inline-block align-top" />
+          <img src="" alt="Logo" width="30" height="30" className="d-inline-block align-top" />
           GrocerEase
         </Link>
         <button

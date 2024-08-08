@@ -31,12 +31,12 @@ const App = () => {
   };
 
   //myState refering intial state of logged store action is loggedIn:false
-  const myState=useSelector((state)=>state.logged)
+  const myState=useSelector((state)=>state.logged.loggedIn)
 
   return (
     <>
      <Router>
-{myState && <Navbar/>}
+{!myState && <Navbar/>}
 <div className="container mt-3" style={{ minHeight: 'calc(100vh - 120px)' }}>
   <Routes>
     <Route path="/" element={<Home />} />

@@ -27,7 +27,7 @@ const Header = () => {
                             style={searchBoxStyle}
                         />
                         <button className="btn btn-light" type="submit">
-                            Search
+                            amrut
                         </button>
                     </form>
                 </div>
