@@ -14,6 +14,7 @@ import Owner from './components/Owner';
 import Customer from './components/Customer';
 // import Admin from './components/Admin';
 import { useSelector } from 'react-redux';
+import Admin from './components/Admin';
 
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
     <Route path="/owner" element={<Owner />} />
     <Route path="/customer" element={<Customer/>} />
     <Route path="/logout" element={<LogoutComp/>}/>
+    <Route path="/admin" element={<Admin/>}/>
     
   </Routes>
 </div>

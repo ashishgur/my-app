@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from './Slice';
+//const UserContext=React.createContext();
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -10,6 +11,7 @@ const Login = () => {
   const [loginTxt,setloginTxt]=useState('Login');
   const navigate = useNavigate(); // Hook for navigation
   const reducxAction=useDispatch();  //to modify state of login
+  //const {setUser}=useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,8 +31,9 @@ const Login = () => {
       });
 
       const data = await response.json();
+      //setUser(data.userName);
 
-      console.log('Response data:', data); // Log the entire response object for debugging
+      console.log('Response data:', data.userName); // Log the entire response object for debugging
 
       if (response.ok) {
         reducxAction(login())  //fetch login action from reducers object with initial state from loggedSlice and convert loggedIn state from false to true
@@ -121,5 +124,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
