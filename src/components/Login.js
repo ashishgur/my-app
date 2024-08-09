@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from './Slice';
-//const UserContext=React.createContext();
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +10,7 @@ const Login = () => {
   const [loginTxt,setloginTxt]=useState('Login');
   const navigate = useNavigate(); // Hook for navigation
   const reducxAction=useDispatch();  //to modify state of login
-  //const {setUser}=useContext(UserContext);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ const Login = () => {
       });
 
       const data = await response.json();
-      //setUser(data.userName);
+      
 
       console.log('Response data:', data.userName); // Log the entire response object for debugging
 
@@ -46,7 +45,7 @@ const Login = () => {
             navigate('/admin');
             break;
           case 2:
-            navigate('/owner'); // Redirect to owner component
+            navigate('/owner',{state:{username}}); // Redirect to owner component
             break;
           case 3:
             navigate('/customer'); // Redirect to customer component

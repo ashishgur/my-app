@@ -15,7 +15,7 @@ const Admin = () => {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="#">Dashboard</Link>
+                <Link className="nav-link" to="/">Dashboard</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">Manage Owners</Link>
@@ -32,12 +32,12 @@ const Admin = () => {
       </nav>
 
       {/* Admin-specific routes */}
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/owner" element={<Owner />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/feedback" element={<Feedback />} />
-      </Routes> */}
+        {/* <Route path="/owner" element={<Owner />} /> */}
+        {/* <Route path="/categories" element={<Categories />} /> */}
+        {/* <Route path="/feedback" element={<Feedback />} /> */}
+      </Routes>
     </div>
   );
 };
