@@ -22,7 +22,7 @@ const Login = () => {
 
     try {
       
-      const response = await fetch('https://localhost:7196/api/Users/userValidatingService', {
+      const response = await fetch('https://localhost:7284/api/Users/userValidatingService', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName: username, password: password }), // Adjusted to match expected request body
@@ -33,6 +33,7 @@ const Login = () => {
       console.log('Response data:', data); // Log the entire response object for debugging
 
       if (response.ok) {
+        alert(JSON.stringify(data));
         reducxAction(login())  //fetch login action from reducers object with initial state from loggedSlice and convert loggedIn state from false to true
         // alert(JSON.stringify(data))
         setloginTxt('Logout');

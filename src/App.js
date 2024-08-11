@@ -14,6 +14,8 @@ import Owner from './components/Owner';
 import Customer from './components/Customer';
 // import Admin from './components/Admin';
 import { useSelector } from 'react-redux';
+import CustomerNavbar from './components/customerNav';
+import UpdateProfileForm from './customer/UpdateProfile';
 
 
 const App = () => {
@@ -50,6 +52,8 @@ const App = () => {
     <Route path="/owner" element={<Owner />} />
     <Route path="/customer" element={<Customer/>} />
     <Route path="/logout" element={<LogoutComp/>}/>
+    <Route path='/customernav' element={<CustomerNavbar/>} />
+    <Route path="/update-profile" element={<UpdateProfileForm />} />
     
   </Routes>
 </div>

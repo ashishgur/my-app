@@ -1,0 +1,56 @@
+    // src/components/CustomerNavbar.js
+
+    import React from 'react';
+    import { Link } from 'react-router-dom';
+    import 'bootstrap/dist/css/bootstrap.min.css';
+
+    const CustomerNavbar = () => {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-success">
+        <div className="container">
+            <Link className="navbar-brand" to="/">
+            <img src="" alt="Logo" width="30" height="30" className="d-inline-block align-top" />
+            GrocerEase
+            </Link>
+            <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                <Link className="nav-link" to="/update-profile">Update Profile</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/manage-cart">Manage Cart</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/view-order-history">View Order History</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/make-payment">Make Payment</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/change-password">Change Password</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/give-feedback">Give Feedback</Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/logout">Logout</Link>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    );
+    };
+
+    export default CustomerNavbar;
